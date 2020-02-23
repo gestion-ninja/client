@@ -1,12 +1,12 @@
 import { TestBed } from '@angular/core/testing';
 
-import { NinjaServiceService } from './ninja-service.service';
+import { MissionService } from './mission.service';
 
-describe('NinjaServiceService', () => {
+describe('MissionService', () => {
   beforeEach(() => TestBed.configureTestingModule({}));
 
   it('should be created', () => {
-    const service: NinjaServiceService = TestBed.get(NinjaServiceService);
+    const service: MissionService = TestBed.get(MissionService);
     expect(service).toBeTruthy();
   });
 });

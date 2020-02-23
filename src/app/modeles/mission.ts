@@ -1,6 +1,9 @@
-import { RangMission } from './rang-mission.enum'
+import { Entity } from './entity'
+import { RangMission } from './rang-mission'
+import { Ninja } from './ninja'
+import { EtatMission } from './etat-mission'
 
-export class Mission {
+export class Mission extends Entity {
 
   titre: string
 
@@ -11,5 +14,9 @@ export class Mission {
   recompense: number
 
   dateButoir?: Date
+
+  ninjas: Ninja[]
+
+  etatMission: EtatMission
 
 }

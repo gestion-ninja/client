@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Ninja } from '../modeles/ninja';
+import { NinjaService } from '../service/ninja.service';
 
 @Component({
   selector: 'app-liste-ninja',
@@ -7,9 +9,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ListeNinjaComponent implements OnInit {
 
-  constructor() { }
+  ninjas: Ninja[]
+
+  constructor(
+    private ninjaService: NinjaService
+  ) { }
 
   ngOnInit() {
+    this.ninjaService.getAll().subscribe( ninjas => this.ninjas = ninjas)
   }
 
 }

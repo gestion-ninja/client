@@ -3,10 +3,19 @@
     <th>Nom</th>
     <th>Prénom</th>
     <th>Rang</th>
+    <th>Affinitees</th>
+    <th>Score</th>
     <th>Statut</th>
     <th>Actions</th>
   </thead>
   <tbody>
-    <tr></tr>
+    <tr *ngFor="let ninja of ninjas">
+      <td>{{ninja.nom}}</td>
+      <td>{{ninja.prenom}}</td>
+      <td>{{ninja.rang.libelle}}</td>
+      <td>{{ninja.affinitees | affinitees}}</td>
+      <td>{{ninja.statistiques.total}}</td>
+      <td>{{ninja.statut}}</td>
+    </tr>
   </tbody>
 </table>

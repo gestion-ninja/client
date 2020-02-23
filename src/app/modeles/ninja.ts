@@ -1,7 +1,10 @@
-import { RangNinja } from './rang-ninja.enum'
-import { Affinite } from './affinite.enum'
+import { Statistique } from './statistique'
+import { RangNinja } from './rang-ninja'
+import { Affinitee } from './affinitee'
+import { Entity } from './entity'
+import { Mission } from './mission'
 
-export class Ninja {
+export class Ninja extends Entity {
 
   nom: string
 
@@ -9,20 +12,23 @@ export class Ninja {
 
   rang: RangNinja
 
-  affinitees: Affinite[]
+  affinitees: Affinitee[]
 
   techniques: string[]
 
-  statistiques: {
-    ninjutsu: number,
-    taijutsu: number,
-    genjutsu: number,
-    intelligence: number,
-    force: number,
-    vitesse: number,
-    endurance: number,
-    sceau: number,
-    total: number
+  statistiques: Statistique
+
+  missions: Mission[]
+
+  get statut(): string {
+    const hasMissions = this.missions.length > 0
+    const hasMissionEnCours = this.missions.some( mission => mission.etatMission.terminee === false)
+    let disponible = true
+    console.log(hasMissions)
+    if (hasMissions) {
+      disponible = !hasMissionEnCours
+    }
+    return disponible ? 'Disponible' : 'En mission'
   }
 
 }
