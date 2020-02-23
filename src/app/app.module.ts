@@ -14,6 +14,7 @@ import { AccueilComponent } from './accueil/accueil.component';
 import { FooterComponent } from './layout/footer/footer.component';
 import { HttpClientModule } from '@angular/common/http';
 import { AffiniteesPipe } from './pipe/affinitees.pipe';
+import { EntityService } from './service/entity-service.service';
 
 @NgModule({
   declarations: [
@@ -33,7 +34,8 @@ import { AffiniteesPipe } from './pipe/affinitees.pipe';
     BrowserAnimationsModule,
     HttpClientModule
   ],
-  providers: [],
+  providers: [
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

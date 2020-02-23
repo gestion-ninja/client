@@ -1,11 +1,12 @@
-import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
 
-@Injectable({
-  providedIn: 'root'
-})
-export class BaseService {
+export abstract class BaseService {
+
+  private base: string
+
+  constructor(base: string) {
+    this.base = base
+  }
 
    /**
    *
@@ -23,10 +24,5 @@ export class BaseService {
     }
     return `http://${environment.api.host}:${environment.api.port}/${this.base}/${path}`
   }
-
-  constructor(
-    private base: string,
-    protected http: HttpClient
-    ) { }
 
 }

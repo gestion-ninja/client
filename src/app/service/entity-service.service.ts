@@ -1,15 +1,15 @@
-import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { retry } from 'rxjs/operators';
 import { Entity } from '../modeles/entity';
 import { BaseService } from './base.service';
 
-@Injectable({providedIn: 'root'})
 export abstract class EntityService<T extends Entity> extends BaseService {
 
+  private http: HttpClient
+
   constructor(http: HttpClient, base: string) {
-    super(base, http);
+    super(base)
+    this.http = http
   }
 
   getAll(): Observable<T[]> {

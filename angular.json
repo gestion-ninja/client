@@ -127,5 +127,8 @@
       }
     }
   },
-  "defaultProject": "gestion-ninjas"
+  "defaultProject": "gestion-ninjas",
+  "cli": {
+    "analytics": "4859fce8-1942-4a4c-823e-2c0bfc57fa77"
+  }
 }

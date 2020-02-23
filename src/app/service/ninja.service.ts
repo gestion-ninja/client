@@ -1,10 +1,10 @@
-import { Injectable } from '@angular/core';
+import { Injectable, Inject } from '@angular/core';
 import { EntityService } from './entity-service.service';
 import { Ninja } from '../modeles/ninja';
 import { HttpClient } from '@angular/common/http';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class NinjaService extends EntityService<Ninja> {
 
