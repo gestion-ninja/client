@@ -15,7 +15,7 @@ export abstract class BaseService {
    * * name (the path variable name without the ':' before)
    * * value (the value that must be written in the uri)
    */
-  url(path = '', ...params: { name: string, value: string | number}[]) {
+  protected url(path = '', ...params: { name: string, value: string | number}[]) {
     if (params) {
       params.forEach( param => {
         const regexp = new RegExp(`:${param.name}`)

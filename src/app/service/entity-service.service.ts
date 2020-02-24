@@ -1,11 +1,12 @@
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { retry } from 'rxjs/operators';
 import { Entity } from '../modeles/entity';
 import { BaseService } from './base.service';
 
-export abstract class EntityService<T extends Entity> extends BaseService {
+export abstract class EntityService<T extends Entity, ID extends string | number> extends BaseService {
 
-  private http: HttpClient
+  protected http: HttpClient
 
   constructor(http: HttpClient, base: string) {
     super(base)
@@ -13,10 +14,10 @@ export abstract class EntityService<T extends Entity> extends BaseService {
   }
 
   getAll(): Observable<T[]> {
-    return this.http.get<T[]>(this.url())
+    return this.http.get<T[]>(this.url()).pipe(retry(1))
   }
 
-  getOne(id: number | string): Observable<T> {
+  getOne(id: ID): Observable<T> {
     return this.http.get<T>(this.url(':id', {name: 'id', value: id}))
   }
 

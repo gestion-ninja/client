@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Mission } from '../modeles/mission';
+import { MissionService } from '../service/mission.service';
 
 @Component({
   selector: 'app-liste-missions',
@@ -7,9 +9,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ListeMissionsComponent implements OnInit {
 
-  constructor() { }
+  missions: Mission[]
+
+  constructor(
+    private missionService: MissionService
+  ) { }
 
   ngOnInit() {
+    this.missionService.getAll()
+    .subscribe( missions => this.missions = missions)
+    .unsubscribe()
   }
 
 }

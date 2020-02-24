@@ -1,0 +1,19 @@
+<form [formGroup]="formulaire">
+
+  <fieldset>
+    <legend>Identité</legend>
+    <label for="nom">Nom</label>
+    <input type="text" name="nom" id="nom" formControlName="nom" placeholder="Nom">
+    <label for="prenom">Prénom</label>
+    <input type="text" name="prenom" id="prenom" formControlName="prenom" placeholder="Prénom">
+    <select name="rang" id="rang" formControlName="rang">
+      <option *ngFor="let rang of rangs" [value]="rang.code">{{ rang.libelle }}</option>
+    </select>
+  </fieldset>
+  <fieldset>
+    <legend>Capacitées</legend>
+    <select name="affinitees" id="affinitees" formControlName="affinitees" multiple (change)="ngOnChanges()">
+      <option *ngFor="let affinitee of affinitees" [value]="affinitee.code">{{ affinitee.libelle }}</option>
+    </select>
+  </fieldset>
+</form>

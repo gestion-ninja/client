@@ -14,7 +14,12 @@ import { AccueilComponent } from './accueil/accueil.component';
 import { FooterComponent } from './layout/footer/footer.component';
 import { HttpClientModule } from '@angular/common/http';
 import { AffiniteesPipe } from './pipe/affinitees.pipe';
-import { EntityService } from './service/entity-service.service';
+import { DetailNinjaComponent } from './detail-ninja/detail-ninja.component';
+import { StatistiqueTotalPipe } from './pipe/statistique-total.pipe';
+import { StatutPipe } from './pipe/statut.pipe';
+import { AjouterMissionComponent } from './ajouter-mission/ajouter-mission.component';
+import { AjouterNinjaComponent } from './ajouter-ninja/ajouter-ninja.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -27,12 +32,18 @@ import { EntityService } from './service/entity-service.service';
     AccueilComponent,
     FooterComponent,
     AffiniteesPipe,
+    DetailNinjaComponent,
+    StatistiqueTotalPipe,
+    StatutPipe,
+    AjouterMissionComponent,
+    AjouterNinjaComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    HttpClientModule
+    HttpClientModule,
+    ReactiveFormsModule
   ],
   providers: [
   ],

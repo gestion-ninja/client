@@ -16,7 +16,8 @@ export class ListeNinjaComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.ninjaService.getAll().subscribe( ninjas => this.ninjas = ninjas)
+    this.ninjaService.getAll()
+    .subscribe( ninjas => this.ninjas = ninjas)
   }
 
 }

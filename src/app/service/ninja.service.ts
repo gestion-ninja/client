@@ -6,9 +6,11 @@ import { HttpClient } from '@angular/common/http';
 @Injectable({
   providedIn: 'root',
 })
-export class NinjaService extends EntityService<Ninja> {
+export class NinjaService extends EntityService<Ninja, number> {
 
-  constructor(http: HttpClient) {
+  constructor(
+    protected http: HttpClient
+    ) {
     super(http, 'ninja')
   }
 }

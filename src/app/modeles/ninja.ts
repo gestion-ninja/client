@@ -24,7 +24,6 @@ export class Ninja extends Entity {
     const hasMissions = this.missions.length > 0
     const hasMissionEnCours = this.missions.some( mission => mission.etatMission.terminee === false)
     let disponible = true
-    console.log(hasMissions)
     if (hasMissions) {
       disponible = !hasMissionEnCours
     }

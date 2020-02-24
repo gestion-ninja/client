@@ -1,12 +1,16 @@
-<table>
+<a [routerLink]="['ajouter']" routerLinkActive>Ajouter</a>
+<router-outlet></router-outlet>
+
+<table border="1">
+  <caption>Liste des ninjas</caption>
   <thead>
-    <th>Nom</th>
-    <th>Prénom</th>
-    <th>Rang</th>
-    <th>Affinitees</th>
-    <th>Score</th>
-    <th>Statut</th>
-    <th>Actions</th>
+    <th id="nom">Nom</th>
+    <th id="prénom">Prénom</th>
+    <th id="rang">Rang</th>
+    <th id="affinitées">Affinitees</th>
+    <th id="score">Score</th>
+    <th id="statut">Statut</th>
+    <th id="actions">Actions</th>
   </thead>
   <tbody>
     <tr *ngFor="let ninja of ninjas">
@@ -14,8 +18,12 @@
       <td>{{ninja.prenom}}</td>
       <td>{{ninja.rang.libelle}}</td>
       <td>{{ninja.affinitees | affinitees}}</td>
-      <td>{{ninja.statistiques.total}}</td>
-      <td>{{ninja.statut}}</td>
+      <td class="center">{{ninja.statistiques | statistiqueTotal}}</td>
+      <td>{{ninja | statut}}</td>
+      <td>
+        <button>👁️</button>
+        <button>➡️</button>
+      </td>
     </tr>
   </tbody>
 </table>
